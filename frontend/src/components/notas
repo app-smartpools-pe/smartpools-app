@@ -1,0 +1,78 @@
+<div className="rf-cards-featuredServices" ref={serviceContentRef}>
+  {serviciosDestacados.slice(0, 4).map((serv) => (
+    <div className="listitem" key={serv.id}>
+      <div
+        className="featuredServicesItem rf-cards-scroller-content"
+        data-trigger-click="click [data-relatedlink=':r1k:']"
+      >
+        <div className="rf-featuredServicesItem-content-img">
+          <div className="image-featuredServicesItem">
+            <Link
+              to={`/shop/product/IGMALLPRODUCTS/P/${serv.slug}`}
+              target="_blank"
+            >
+              <img
+                decoding="async"
+                width={200}
+                height={200}
+                src={serv.imagen_url}
+                alt=""
+              />
+            </Link>
+          </div>
+        </div>
+        <div className="icon-container">
+          <picture
+            id="overview-incentive-icon-trade-in-2024-iphone-1"
+            className="overview-incentive-icon-trade-in-2024-iphone icon-card-image loaded"
+            data-lazy=""
+            data-picture-loaded=""
+          >
+            <source
+              srcSet="https://www.apple.com/v/iphone/home/cb/images/overview/incentive/icon_trade_in_2024_iphone__eeqv8d6hkt0m_large.png 2x"
+              media="(min-width:0px)"
+            />
+            <img
+              src="https://www.apple.com/v/iphone/home/cb/images/overview/incentive/icon_trade_in_2024_iphone__eeqv8d6hkt0m_large.png"
+              onload="__lp(event)"
+              alt=""
+            />
+          </picture>
+        </div>
+        <div className="rf-featuredServicesItem-content-info">
+          <h3 className="name-featuredServicesItem">
+            <Link
+              to={`/shop/product/IGMALLPRODUCTS/P/${serv.slug}`}
+              target="_blank"
+            >
+              <span>{serv.featuredservices}</span>
+            </Link>
+          </h3>
+          <p className="description-featuredService typography-family-paragraph">
+            {serv.descripcion}
+          </p>
+        </div>
+        <button
+          data-modal-open=""
+          data-analytics-intrapage-link=""
+          className="card-modal-trigger modal-trigger card-cta-modal-button"
+          data-analytics-title="open modal - trade in"
+          data-analytics-click="prop3:open modal - trade in"
+          aria-label="Learn more about Apple Trade in."
+        >
+          <div className="modal-trigger-container">
+            <span className="card-cta-modal-button-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                className="card-cta-modal-button-small-icon card-modal-button-small-icon"
+              >
+                <path d="M17.25,8.51H11.5V2.75A1.5,1.5,0,0,0,10,1.25h0a1.5,1.5,0,0,0-1.5,1.5V8.5H2.75a1.5,1.5,0,0,0,0,3H8.5v5.75a1.5,1.5,0,0,0,1.5,1.5h0a1.5,1.5,0,0,0,1.5-1.5V11.5h5.75a1.5,1.5,0,0,0,0-3Z" />
+              </svg>
+            </span>
+          </div>
+        </button>
+      </div>
+    </div>
+  ))}
+</div>;

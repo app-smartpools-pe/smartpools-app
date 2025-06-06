@@ -1,0 +1,266 @@
+/* Estilos para Footer */
+
+#globalfooter {
+  position: relative;
+  max-width: 2560px;
+  overflow: hidden;
+}
+
+.footer__full_page_smartpools {
+  background-color: #f5f5f7;
+}
+
+.wrapper-footer__smartpools_container {
+  display: flex;
+  justify-content: center;
+}
+
+.grid-footer-column {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border-top: 0px solid #86868b66;
+}
+
+.footer-logo {
+  display: flex;
+  justify-content: center;
+}
+
+.footer__logo__container {
+  padding: 70px 48px 20px 48px;
+  border-bottom: 1px solid #86868b33;
+}
+
+.footer__smartpools_container {
+  padding: 48px 48px 128px 48px;
+  background-color: #f5f5f7;
+}
+
+.border__botoom {
+  border-bottom: 0px solid #86868b33;
+}
+
+.footer__logo__container a {
+  display: block;
+  width: 1115px;
+  padding: 0 12px;
+  text-align: center;
+}
+
+.footer__logo__container img {
+  pointer-events: none;
+}
+
+.footer-head-container {
+  display: flex;
+  align-items: center;
+}
+
+.footer-icon {
+  display: none;
+}
+
+.footer-icon i {
+  margin-right: 12px;
+  margin-bottom: 8px;
+  display: flex;
+  font-size: 28px;
+}
+
+.footer-head h3 {
+  color: rgba(0, 0, 0, 0.88);
+  font-family:
+    "SF Pro Text", "Myriad Set Pro", "SF Pro Icons", "Apple Legacy Chevron",
+    "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.3333733333;
+  letter-spacing: -0.01em;
+}
+
+.link {
+  margin: 20px 0px 20px 0px;
+}
+
+.link__grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 4fr));
+  grid-gap: 25px 30px;
+  gap: 0px 0px;
+}
+
+.link-mapas,
+.link-contact,
+.link-social-media {
+  margin: 0;
+  padding: 0;
+}
+
+.link-social-media {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: calc(12px * 2);
+  align-items: center;
+}
+
+.list-social-media {
+  margin: 0 auto;
+}
+
+.link-contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.link ul li a,
+.link p {
+  color: rgba(0, 0, 0, 0.72) !important;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.3333733333;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+}
+
+.copyright-wrapper {
+  background-color: #f5f5f7;
+}
+
+._copyright-container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1265px;
+  height: 100%;
+  border-top: 1px Solid rgba(0, 0, 0, 0.16);
+}
+
+.ac-gf-footer-locale a {
+  color: rgba(0, 0, 0, 0.72);
+  font-family:
+    SF Pro Text,
+    SF Pro Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif !important;
+  font-size: 13px;
+  line-height: 1.3333733333;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+}
+
+.ac-gf-footer-separator {
+  display: none;
+}
+
+.ac-gf-footer-separator span {
+  color: rgba(0, 0, 0, 0.72);
+  font-family:
+    SF Pro Text,
+    SF Pro Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif !important;
+  font-size: 13px;
+  line-height: 1.3333733333;
+  letter-spacing: -0.01em;
+}
+
+.ac-gf-footer {
+  width: 100%;
+  padding: 15px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* .s_copyright {
+  padding: 15px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+.s_copyright h2 {
+  color: rgba(0, 0, 0, 0.56);
+  margin: 0px;
+  font-family:
+    SF Pro Text,
+    SF Pro Icons,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif !important;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.3333733333;
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 883px) {
+  .--head--carrusel--infinit-- {
+    margin: 0 auto;
+    width: 100%;
+    max-width: calc(100% - 96px);
+  }
+
+  .--copy--head--wrapper-- {
+    margin: 44px auto !important;
+    width: 100%;
+  }
+
+  .--copy--head--wrapper-- h2 {
+    font-size: 28px !important;
+  }
+
+  .grid-footer-column {
+    flex-direction: column !important;
+    justify-content: center;
+    border-top: 0px solid #86868b66;
+  }
+
+  .footer__smartpools_container {
+    margin: auto !important;
+    padding: 0px !important;
+    width: 100%;
+    max-width: calc(100% - 96px);
+  }
+
+  .footer-head svg {
+    margin: 48px 0;
+  }
+
+  ._copyright-container {
+    max-width: calc(100% - 96px);
+  }
+
+  .link-social-media {
+    display: flex !important;
+    justify-content: space-between;
+  }
+
+  .--border-top-- {
+    border-top: 1px solid rgba(0, 0, 0, 0.16);
+  }
+
+  .footer-icon {
+    display: none;
+  }
+
+  .footer-icon i {
+    font-size: 20px;
+  }
+
+  .footer-head h3 {
+    font-size: 15px;
+    font-weight: 400;
+  }
+
+  .link ul li a,
+  .link p {
+    font-size: 12px;
+  }
+}
