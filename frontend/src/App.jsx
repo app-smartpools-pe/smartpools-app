@@ -12,7 +12,7 @@ import Services from "./components/Services";
 import Accessories from "./components/Accessories";
 import Contact from "./components/Contact";
 import Brands from "./components/Brands";
-import Support from "./components/support";
+import Support from "./components/Support";
 import Search from "./components/Search";
 import Bag from "./components/Bag";
 import Checkout from "./components/Checkout";
