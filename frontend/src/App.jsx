@@ -20,7 +20,7 @@ import PedidoExitoso from "./components/PedidoExitoso";
 import ProductDetail from "./components/ProductDetail";
 
 // Páginas de categorias
-import Categories from "./pages/Store/BombasFiltros/BombasFiltros";
+import Categories from "./pages/Store/bombasfiltros/BombasFiltros";
 
 // CRUD > CREATE // READ // UPDATE // DELETE //
 
