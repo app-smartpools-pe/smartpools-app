@@ -4607,11 +4607,11 @@ select::-webkit-scrollbar-thumb:hover {
   #products,
   #featuredServices {
     margin-inline-end: 0;
-    max-width: calc(100% - 48px);
+    max-width: calc(100% - 24px);
   }
 
   .--unit--section--form--pagehome-- {
-    max-width: calc(100% - 96px);
+    max-width: calc(100% - 48px);
   }
 
   .title {

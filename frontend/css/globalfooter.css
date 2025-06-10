@@ -204,7 +204,7 @@
   .--head--carrusel--infinit-- {
     margin: 0 auto;
     width: 100%;
-    max-width: calc(100% - 96px);
+    max-width: calc(100% - 48px);
   }
 
   .--copy--head--wrapper-- {
@@ -226,7 +226,7 @@
     margin: auto !important;
     padding: 0px !important;
     width: 100%;
-    max-width: calc(100% - 96px);
+    max-width: calc(100% - 48px);
   }
 
   .footer-head svg {
@@ -234,7 +234,7 @@
   }
 
   ._copyright-container {
-    max-width: calc(100% - 96px);
+    max-width: calc(100% - 48px);
   }
 
   .link-social-media {
