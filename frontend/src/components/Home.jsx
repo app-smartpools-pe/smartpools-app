@@ -366,24 +366,6 @@ const Home = () => {
             <div id="--slider--banner--home--" className="slider-banner-home">
               <div id="--unit--slider--" className="slider-wrapper-home">
                 <section className="art-wrapper-section-home --unit--slide--1--">
-                  <div className="unit-copy-wrapper">
-                    <h2 className="welcome-to-smartpools">
-                      ¡Bienvenido a smartpools!
-                    </h2>
-                    <p className="copy-to-welcome">
-                      Transformamos tus ideas en realidad.
-                    </p>
-                    <div className="--unit--link--wrapper--banner-home--">
-                      <div className="--unit--link--wrapper--">
-                        <Link
-                          to="./"
-                          className="buttonpools button-elevated button-primary"
-                        >
-                          Empieza tu proyecto
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
                   <div className="unit-image-wrapper">
                     <picture className="art-image">
                       <img
