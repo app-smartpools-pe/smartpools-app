@@ -4580,6 +4580,10 @@ select::-webkit-scrollbar-thumb:hover {
     filter: brightness(75%);
   }
 
+    .brightness-0 {
+      filter: brightness(100%);
+    }
+
   .brightness-2,
   .brightness-3,
   .brightness-4 {
