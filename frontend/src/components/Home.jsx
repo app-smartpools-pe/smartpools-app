@@ -387,6 +387,35 @@ const Home = () => {
                   <div className="unit-image-wrapper">
                     <picture className="art-image">
                       <img
+                        src="images/unit-smartpools_intelligence-coming-soon-picture-25-26-100.jpg"
+                        alt=""
+                        className="--image--slider-home-- --unit--image--slide--home--1-- brightness-0"
+                      />
+                    </picture>
+                  </div>
+                </section>
+                <section className="art-wrapper-section-home --unit--slide--1--">
+                  <div className="unit-copy-wrapper">
+                    <h2 className="welcome-to-smartpools">
+                      ¡Bienvenido a smartpools!
+                    </h2>
+                    <p className="copy-to-welcome">
+                      Transformamos tus ideas en realidad.
+                    </p>
+                    <div className="--unit--link--wrapper--banner-home--">
+                      <div className="--unit--link--wrapper--">
+                        <Link
+                          to="./"
+                          className="buttonpools button-elevated button-primary"
+                        >
+                          Empieza tu proyecto
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="unit-image-wrapper">
+                    <picture className="art-image">
+                      <img
                         src="images/swimming-pool-top-view.jpg"
                         alt=""
                         className="--image--slider-home-- --unit--image--slide--home--1-- brightness-1"
