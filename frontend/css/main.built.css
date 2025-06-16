@@ -4571,10 +4571,10 @@ select::-webkit-scrollbar-thumb:hover {
     text-align: left;
   }
 
-  .art-image {
+  /* .art-image {
     width: 100%;
     height: 500px;
-  }
+  } */
 
   .--unit--image--slide--home--1-- {
     filter: brightness(75%);
