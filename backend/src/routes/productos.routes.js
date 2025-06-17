@@ -4,10 +4,18 @@ const db = require("../config/db");
 const slugify = require("slugify");
 
 // Obtener todos los productos
+//router.get("/", (req, res) => {
+  //db.query("SELECT * FROM products", (err, results) => {
+    //if (err) return res.status(500).json({ error: err });
+    //res.json(results);
+  //});
+//});  
+
 router.get("/", (req, res) => {
   db.query("SELECT * FROM products", (err, results) => {
-    if (err) return res.status(500).json({ error: err });
-    res.json(results);
+    if (err) {
+  console.error("❌ Error en /api/productos:", err);
+  return res.status(500).json({ error: { message: err.message, code: err.code } });
   });
 });
 
@@ -119,73 +127,3 @@ router.get("/categoria/:categoria", (req, res) => {
 });
 
 module.exports = router;
-
-// const express = require("express");
-// const router = express.Router();
-// const db = require("../config/db");
-
-// // Obtener todos los productos
-// router.get("/", (req, res) => {
-//   db.query("SELECT * FROM products", (err, results) => {
-//     if (err) return res.status(500).json({ error: err });
-//     res.json(results);
-//   });
-// });
-
-// // Obtener un producto por ID
-// router.get("/:id", (req, res) => {
-//   const id = req.params.id;
-//   db.query("SELECT * FROM products WHERE id = ?", [id], (err, results) => {
-//     if (err) return res.status(500).json({ error: err });
-//     res.json(results[0]);
-//   });
-// });
-
-// // Crear un producto
-// router.post("/", (req, res) => {
-//   const {
-//     nombre,
-//     descripcion,
-//     precio,
-//     stock,
-//     categoria_id,
-//     imagen_url,
-//     marca,
-//   } = req.body;
-//   db.query(
-//     "INSERT INTO products (nombre, descripcion, precio, stock, categoria_id, imagen_url, marca) VALUES (?, ?, ?, ?, ?)",
-//     [nombre, descripcion, precio, stock, categoria_id, imagen_url, marca],
-//     (err, result) => {
-//       if (err) return res.status(500).json({ error: err });
-//       res.json({
-//         message: "Producto creado exitosamente",
-//         id: result.insertId,
-//       });
-//     }
-//   );
-// });
-
-// // Actualizar un producto
-// router.put("/:id", (req, res) => {
-//   const { nombre, descripcion, precio, stock, categoria_id } = req.body;
-//   const id = req.params.id;
-//   db.query(
-//     "UPDATE products SET nombre = ?, descripcion = ?, precio = ?, stock = ?, categoria_id = ? WHERE id = ?",
-//     [nombre, descripcion, precio, stock, categoria_id, id],
-//     (err) => {
-//       if (err) return res.status(500).json({ error: err });
-//       res.json({ message: "Producto actualizado" });
-//     }
-//   );
-// });
-
-// // Eliminar un producto
-// router.delete("/:id", (req, res) => {
-//   const id = req.params.id;
-//   db.query("DELETE FROM products WHERE id = ?", [id], (err) => {
-//     if (err) return res.status(500).json({ error: err });
-//     res.json({ message: "Producto eliminado" });
-//   });
-// });
-
-// module.exports = router;
