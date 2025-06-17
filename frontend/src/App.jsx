@@ -47,7 +47,7 @@ import DashboardClient from "./auth/DashboardClient";
 
 function App() {
   return (
-    <Router>
+    <>
       <Globalheader />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -142,7 +142,7 @@ function App() {
         />
       </Routes>
       <Globalfooter />
-    </Router>
+    </>
   );
 }
 
