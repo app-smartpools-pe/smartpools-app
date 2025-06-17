@@ -4,7 +4,7 @@ require("dotenv").config();
 const db = require("./src/config/db");
 const app = require("./src/app");
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3306;
 
 // Middlewares
 app.use(cors());
