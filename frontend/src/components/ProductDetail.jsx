@@ -10,7 +10,7 @@ const ProductDetail = () => {
   const { agregarAlCarrito } = useCart();
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/productos/slug/${slug}`)
+    fetch(`https://app-smartpoolspe.onrender.com//api/productos/slug/${slug}`)
       .then((res) => res.json())
       .then((data) => {
         setProducto(data);
