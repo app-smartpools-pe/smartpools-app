@@ -46,7 +46,7 @@ const Home = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:3306/api/quoteform/quotes",
+        "https://smartpools-pe.onrender.com/api/quoteform/quotes",
         {
           // <--- URL de tu API
           method: "POST",
@@ -107,14 +107,14 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:3306/api/productos")
+    fetch("https://smartpools-pe.onrender.com/api/productos")
       .then((res) => res.json())
       .then((data) => setProductos(data))
       .catch((err) => console.error("Error al cargar productos:", err));
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:3306/api/featuredservices")
+    fetch("https://smartpools-pe.onrender.com/api/featuredservices")
       .then((res) => res.json())
       .then((data) => setServiciosDestacados(data))
       .catch((err) => console.error("Error al cargar Featured Services:", err));
