@@ -14,9 +14,12 @@ const slugify = require("slugify");
 router.get("/", (req, res) => {
   db.query("SELECT * FROM products", (err, results) => {
     if (err) {
-  console.error("❌ Error en /api/productos:", err);
-  return res.status(500).json({ error: { message: err.message, code: err.code } });
-  }});
+      console.error("❌ Error en /api/productos:", err);
+      return res.status(500).json({ error: { message: err.message, code: err.code } });
+    }
+    res.json(results);
+  });
+});
 
 // Obtener un producto por ID
 router.get("/:id", (req, res) => {
