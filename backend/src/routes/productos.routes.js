@@ -16,7 +16,7 @@ router.get("/", (req, res) => {
     if (err) {
   console.error("❌ Error en /api/productos:", err);
   return res.status(500).json({ error: { message: err.message, code: err.code } });
-});
+  }});
 
 // Obtener un producto por ID
 router.get("/:id", (req, res) => {
