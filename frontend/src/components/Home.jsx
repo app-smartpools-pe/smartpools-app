@@ -538,8 +538,8 @@ const Home = () => {
                           >
                             <div className="rf-product-content-img">
                               <div className="image-product">
-                                <Link
-                                  to={`/shop/product/IGMALLPRODUCTS/P/${prod.slug}`}
+                                <a
+                                  href={`/shop/product/IGMALLPRODUCTS/P/${prod.slug}`}
                                   target="_blank"
                                 >
                                   <img
@@ -549,7 +549,7 @@ const Home = () => {
                                     src={prod.imagen_url}
                                     alt=""
                                   />
-                                </Link>
+                                </a>
                               </div>
                             </div>
                             <div className="rf-product-content-info">
@@ -559,12 +559,12 @@ const Home = () => {
                                 </span>
                               </div>
                               <h3 className="name-product">
-                                <Link
-                                  to={`/shop/product/IGMALLPRODUCTS/P/${prod.slug}`}
+                                <a
+                                  href={`/shop/product/IGMALLPRODUCTS/P/${prod.slug}`}
                                   target="_blank"
                                 >
                                   <span>{prod.nombre}</span>
-                                </Link>
+                                </a>
                               </h3>
                             </div>
                           </div>
