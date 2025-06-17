@@ -4557,13 +4557,13 @@ select::-webkit-scrollbar-thumb:hover {
   } */
 
   .art-wrapper-section-home {
-    height: 500px;
+    height: 380px;
   }
 
   .unit-copy-wrapper {
     width: 100%;
     max-width: calc(100% - 100px);
-    height: 500px;
+    height: 380px;
   }
 
   .unit-copy-wrapper {
@@ -4592,7 +4592,7 @@ select::-webkit-scrollbar-thumb:hover {
 
   .--image--slider-home-- {
     width: 100%;
-    height: 500px;
+    height: 380px;
     object-position: center;
   }
 
