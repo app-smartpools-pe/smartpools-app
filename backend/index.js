@@ -3,6 +3,17 @@ const cors = require("cors");
 require("dotenv").config();
 const db = require("./src/config/db");
 const app = require("./src/app");
+const path = require("path");
+
+const buildPath = path.join(__dirname, "frontend", "build");
+
+// Servir los archivos estáticos (React compilado)
+app.use(express.static(buildPath));
+
+// Ruta comodín: cualquier ruta que no coincida con un archivo físico → devolver index.html
+app.get("*", (req, res) => {
+  res.sendFile(path.join(buildPath, "index.html"));
+});
 
 const PORT = process.env.PORT || 3306;
 
