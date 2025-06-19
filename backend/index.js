@@ -3,25 +3,14 @@ const cors = require("cors");
 require("dotenv").config();
 const db = require("./src/config/db");
 const app = require("./src/app");
-const path = require("path");
-
-const buildPath = path.join(__dirname, "frontend", "build");
 
 // Middlewares
 app.use(cors());
 app.use(express.json());
 
-// Servir archivos estáticos de React
-app.use(express.static(buildPath));
-
 // Rutas de prueba backend
 app.get("/api/test", (req, res) => {
   res.send("Servidor backend smartpools funcionando ✅");
-});
-
-// Ruta comodín para React SPA
-app.get("*", (req, res) => {
-  res.sendFile(path.join(buildPath, "index.html"));
 });
 
 const PORT = process.env.PORT || 3306;
