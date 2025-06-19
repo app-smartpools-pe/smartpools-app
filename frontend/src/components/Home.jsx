@@ -540,7 +540,6 @@ const Home = () => {
                               <div className="image-product">
                                 <a
                                   href={`/shop/product/IGMALLPRODUCTS/P/${prod.slug}`}
-                                  target="_blank"
                                 >
                                   <img
                                     decoding="async"
@@ -561,7 +560,6 @@ const Home = () => {
                               <h3 className="name-product">
                                 <a
                                   href={`/shop/product/IGMALLPRODUCTS/P/${prod.slug}`}
-                                  target="_blank"
                                 >
                                   <span>{prod.nombre}</span>
                                 </a>
