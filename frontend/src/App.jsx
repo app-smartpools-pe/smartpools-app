@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Globalheader from "./components/Globalheader";
 import Globalfooter from "./components/Globalfooter";
 
@@ -47,7 +47,7 @@ import DashboardClient from "./auth/DashboardClient";
 
 function App() {
   return (
-    <>
+    <Router>
       <Globalheader />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -142,7 +142,7 @@ function App() {
         />
       </Routes>
       <Globalfooter />
-    </>
+    </Router>
   );
 }
 
