@@ -49,29 +49,4 @@ router.post("/", (req, res) => {
 
 module.exports = router;
 
-// const express = require("express");
-// const router = express.Router();
-// const db = require("../config/db");
-
-// // Obtener todas las órdenes
-// router.get("/", (req, res) => {
-//   db.query("SELECT * FROM ordenes", (err, results) => {
-//     if (err) return res.status(500).json({ error: err });
-//     res.json(results);
-//   });
-// });
-
-// // Crear nueva orden
-// router.post("/", (req, res) => {
-//   const { usuario_id, total } = req.body;
-//   db.query(
-//     "INSERT INTO ordenes (usuario_id, total) VALUES (?, ?)",
-//     [usuario_id, total],
-//     (err, result) => {
-//       if (err) return res.status(500).json({ error: err });
-//       res.json({ message: "Orden creada", id: result.insertId });
-//     }
-//   );
-// });
-
 // module.exports = router;
