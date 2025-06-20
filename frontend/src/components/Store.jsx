@@ -524,7 +524,7 @@ const Store = () => {
                     <div className="rf-product-content-img">
                       <div className="image-product">
                         <Link
-                          to={`/shop/product/IGMALLPRODUCTS/P/${prod.slug}`}
+                          to={`./shop/product/IGMALLPRODUCTS/P/${prod.slug}`}
                         >
                           <img
                             alt=""
@@ -544,7 +544,7 @@ const Store = () => {
                       </div>
                       <h3 className="name-product">
                         <Link
-                          to={`/shop/product/IGMALLPRODUCTS/P/${prod.slug}`}
+                          to={`./shop/product/IGMALLPRODUCTS/P/${prod.slug}`}
                         >
                           <span>{prod.nombre}</span>
                         </Link>
