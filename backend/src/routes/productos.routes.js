@@ -44,15 +44,6 @@ router.get("/slug/:slug", (req, res) => {
   });
 });
 
-// ✅ 4. Obtener un producto por ID
-router.get("/:id", (req, res) => {
-  const id = req.params.id;
-  db.query("SELECT * FROM products WHERE id = ?", [id], (err, results) => {
-    if (err) return res.status(500).json({ error: err });
-    res.json(results[0]);
-  });
-});
-
 // ✅ 5. Crear un producto
 router.post("/", (req, res) => {
   const { nombre, descripcion, precio, stock, categoria, imagen_url, marca } =
