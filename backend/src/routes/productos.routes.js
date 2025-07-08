@@ -33,19 +33,21 @@ router.get("/:id", (req, res) => {
 //
 
 // 2. Generar slugs y actualizar
-db.query("SELECT id, nombre FROM products", (err, results) => {
-  if (err) throw err;
+router.post("/generar-slugs", (req, res) => {
+  db.query("SELECT id, nombre FROM products", (err, results) => {
+    if (err) return res.status(500).json({ error: err });
 
-  results.forEach((producto) => {
-    const slug = slugify(producto.nombre, {
-      lower: true,
-      strict: true,
+    results.forEach((producto) => {
+      const slug = slugify(producto.nombre, {
+        lower: true,
+        strict: true,
+      });
+
+      db.query("UPDATE products SET slug = ? WHERE id = ?", [slug, producto.id]);
     });
 
-    db.query("UPDATE products SET slug = ? WHERE id = ?", [slug, producto.id]);
+    res.json({ message: "Slugs generados correctamente." });
   });
-
-  console.log("Slugs generados correctamente.");
 });
 
 // Obtener un producto por slug
