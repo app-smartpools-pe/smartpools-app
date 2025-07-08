@@ -369,7 +369,7 @@ const Home = () => {
                   <div className="unit-image-wrapper">
                     <picture className="art-image">
                       <img
-                        src="images/unit-smartpools_intelligence-theme-coming-soon.jpg"
+                        src="images/unit-smartpools_intelligence-coming-soon-picture-theme-smartpools-intelligence-25-26.jpg"
                         alt=""
                         className="--image--slider-home-- --unit--image--slide--home--1-- brightness-0"
                       />
