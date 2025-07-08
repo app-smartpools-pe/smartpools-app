@@ -3,27 +3,33 @@ const router = express.Router();
 const db = require("../config/db");
 const slugify = require("slugify");
 
-// 🔹 Obtener todos los productos
+// ✅ 1. Obtener productos por categoría (rutas específicas van primero)
+router.get("/categoria/:categoria", (req, res) => {
+  const { categoria } = req.params;
+  db.query(
+    "SELECT * FROM products WHERE categoria = ?",
+    [categoria],
+    (err, results) => {
+      if (err) return res.status(500).json({ error: err });
+      res.json(results);
+    }
+  );
+});
+
+// ✅ 2. Obtener todos los productos
 router.get("/", (req, res) => {
   db.query("SELECT * FROM products", (err, results) => {
     if (err) {
       console.error("❌ Error en /api/productos:", err);
-      return res.status(500).json({ error: { message: err.message, code: err.code } });
+      return res
+        .status(500)
+        .json({ error: { message: err.message, code: err.code } });
     }
     res.json(results);
   });
 });
 
-// 🔹 Obtener producto por ID
-router.get("/:id", (req, res) => {
-  const id = req.params.id;
-  db.query("SELECT * FROM products WHERE id = ?", [id], (err, results) => {
-    if (err) return res.status(500).json({ error: err });
-    res.json(results[0]);
-  });
-});
-
-// 🔹 Obtener producto por Slug
+// ✅ 3. Obtener un producto por slug
 router.get("/slug/:slug", (req, res) => {
   const { slug } = req.params;
 
@@ -38,24 +44,28 @@ router.get("/slug/:slug", (req, res) => {
   });
 });
 
-// 🔹 Obtener productos por categoría
-router.get("/categoria/:categoria", (req, res) => {
-  const { categoria } = req.params;
-  db.query("SELECT * FROM products WHERE categoria = ?", [categoria], (err, results) => {
+// ✅ 4. Obtener un producto por ID
+router.get("/:id", (req, res) => {
+  const id = req.params.id;
+  db.query("SELECT * FROM products WHERE id = ?", [id], (err, results) => {
     if (err) return res.status(500).json({ error: err });
-    res.json(results);
+    res.json(results[0]);
   });
 });
 
-// 🔹 Crear producto
+// ✅ 5. Crear un producto
 router.post("/", (req, res) => {
-  const { nombre, descripcion, precio, stock, categoria, imagen_url, marca } = req.body;
+  const { nombre, descripcion, precio, stock, categoria, imagen_url, marca } =
+    req.body;
 
-  console.log("📦 Nuevo producto recibido:", req.body);
+  const slug = slugify(nombre, {
+    lower: true,
+    strict: true,
+  });
 
   db.query(
-    "INSERT INTO products (nombre, descripcion, precio, stock, categoria, imagen_url, marca) VALUES (?, ?, ?, ?, ?, ?, ?)",
-    [nombre, descripcion, precio, stock, categoria, imagen_url, marca],
+    "INSERT INTO products (nombre, descripcion, precio, stock, categoria, imagen_url, marca, slug) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+    [nombre, descripcion, precio, stock, categoria, imagen_url, marca, slug],
     (err, result) => {
       if (err) return res.status(500).json({ error: err });
       res.json({
@@ -66,9 +76,10 @@ router.post("/", (req, res) => {
   );
 });
 
-// 🔹 Actualizar producto
+// ✅ 6. Actualizar un producto
 router.put("/:id", (req, res) => {
-  const { nombre, descripcion, precio, stock, categoria, imagen_url, marca } = req.body;
+  const { nombre, descripcion, precio, stock, categoria, imagen_url, marca } =
+    req.body;
   const id = req.params.id;
 
   db.query(
@@ -81,30 +92,12 @@ router.put("/:id", (req, res) => {
   );
 });
 
-// 🔹 Eliminar producto
+// ✅ 7. Eliminar un producto
 router.delete("/:id", (req, res) => {
   const id = req.params.id;
   db.query("DELETE FROM products WHERE id = ?", [id], (err) => {
     if (err) return res.status(500).json({ error: err });
     res.json({ message: "Producto eliminado" });
-  });
-});
-
-// 🔹 [Opcional] Ruta protegida para regenerar slugs manualmente
-router.post("/generar-slugs", (req, res) => {
-  db.query("SELECT id, nombre FROM products", (err, results) => {
-    if (err) return res.status(500).json({ error: err });
-
-    results.forEach((producto) => {
-      const slug = slugify(producto.nombre || "", {
-        lower: true,
-        strict: true,
-      });
-
-      db.query("UPDATE products SET slug = ? WHERE id = ?", [slug, producto.id]);
-    });
-
-    res.json({ message: "Slugs generados correctamente." });
   });
 });
 
