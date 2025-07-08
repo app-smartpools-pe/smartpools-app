@@ -364,18 +364,7 @@ const Home = () => {
         <div className="homepage-section collection-module">
           <div className="inv164121052025 first banner-slider-container">
             <div id="--slider--banner--home--" className="slider-banner-home">
-              <div id="--unit--slider--" className="slider-wrapper-home">
-                <section className="art-wrapper-section-home --unit--slide--1--">
-                  <div className="unit-image-wrapper">
-                    <picture className="art-image">
-                      <img
-                        src="images/unit-smartpools_intelligence-coming-soon-picture-theme-smartpools-intelligence-25-26.jpg"
-                        alt=""
-                        className="--image--slider-home-- --unit--image--slide--home--1-- brightness-0"
-                      />
-                    </picture>
-                  </div>
-                </section>
+              <div id="--unit--slider--" className="slider-wrapper-home">               
                 <section className="art-wrapper-section-home --unit--slide--1--">
                   <div className="unit-copy-wrapper">
                     <h2 className="welcome-to-smartpools">
@@ -490,6 +479,17 @@ const Home = () => {
                         src="images/high-angle-view-man-swimming-pool.jpg"
                         alt=""
                         className="--image--slider-home-- --unit--image--slide--home--1-- brightness-4"
+                      />
+                    </picture>
+                  </div>
+                </section>
+                <section className="art-wrapper-section-home --unit--slide--1--">
+                  <div className="unit-image-wrapper">
+                    <picture className="art-image">
+                      <img
+                        src="images/unit-smartpools_intelligence-coming-soon-picture-theme-smartpools-intelligence-25-26.jpg"
+                        alt=""
+                        className="--image--slider-home-- --unit--image--slide--home--1-- brightness-0"
                       />
                     </picture>
                   </div>
