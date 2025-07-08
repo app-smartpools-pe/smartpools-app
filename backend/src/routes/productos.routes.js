@@ -3,14 +3,7 @@ const router = express.Router();
 const db = require("../config/db");
 const slugify = require("slugify");
 
-// Obtener todos los productos
-//router.get("/", (req, res) => {
-  //db.query("SELECT * FROM products", (err, results) => {
-    //if (err) return res.status(500).json({ error: err });
-    //res.json(results);
-  //});
-//});  
-
+// 🔹 Obtener todos los productos
 router.get("/", (req, res) => {
   db.query("SELECT * FROM products", (err, results) => {
     if (err) {
@@ -21,7 +14,7 @@ router.get("/", (req, res) => {
   });
 });
 
-// Obtener un producto por ID
+// 🔹 Obtener producto por ID
 router.get("/:id", (req, res) => {
   const id = req.params.id;
   db.query("SELECT * FROM products WHERE id = ?", [id], (err, results) => {
@@ -30,28 +23,7 @@ router.get("/:id", (req, res) => {
   });
 });
 
-//
-
-// 2. Generar slugs y actualizar
-router.post("/generar-slugs", (req, res) => {
-  db.query("SELECT id, nombre FROM products", (err, results) => {
-    if (err) return res.status(500).json({ error: err });
-
-    results.forEach((producto) => {
-      const slug = slugify(producto.nombre, {
-        lower: true,
-        strict: true,
-      });
-
-      db.query("UPDATE products SET slug = ? WHERE id = ?", [slug, producto.id]);
-    });
-
-    res.json({ message: "Slugs generados correctamente." });
-  });
-});
-
-// Obtener un producto por slug
-
+// 🔹 Obtener producto por Slug
 router.get("/slug/:slug", (req, res) => {
   const { slug } = req.params;
 
@@ -66,14 +38,20 @@ router.get("/slug/:slug", (req, res) => {
   });
 });
 
-//
+// 🔹 Obtener productos por categoría
+router.get("/categoria/:categoria", (req, res) => {
+  const { categoria } = req.params;
+  db.query("SELECT * FROM products WHERE categoria = ?", [categoria], (err, results) => {
+    if (err) return res.status(500).json({ error: err });
+    res.json(results);
+  });
+});
 
-// Crear un producto (CORREGIDO: 7 valores)
+// 🔹 Crear producto
 router.post("/", (req, res) => {
-  const { nombre, descripcion, precio, stock, categoria, imagen_url, marca } =
-    req.body;
+  const { nombre, descripcion, precio, stock, categoria, imagen_url, marca } = req.body;
 
-  console.log("📦 Nuevo producto recibido:", req.body); // 👈 agrega esto
+  console.log("📦 Nuevo producto recibido:", req.body);
 
   db.query(
     "INSERT INTO products (nombre, descripcion, precio, stock, categoria, imagen_url, marca) VALUES (?, ?, ?, ?, ?, ?, ?)",
@@ -88,10 +66,9 @@ router.post("/", (req, res) => {
   );
 });
 
-// Actualizar un producto (CORREGIDO: 7 valores)
+// 🔹 Actualizar producto
 router.put("/:id", (req, res) => {
-  const { nombre, descripcion, precio, stock, categoria, imagen_url, marca } =
-    req.body;
+  const { nombre, descripcion, precio, stock, categoria, imagen_url, marca } = req.body;
   const id = req.params.id;
 
   db.query(
@@ -104,7 +81,7 @@ router.put("/:id", (req, res) => {
   );
 });
 
-// Eliminar un producto
+// 🔹 Eliminar producto
 router.delete("/:id", (req, res) => {
   const id = req.params.id;
   db.query("DELETE FROM products WHERE id = ?", [id], (err) => {
@@ -113,21 +90,22 @@ router.delete("/:id", (req, res) => {
   });
 });
 
-// Obtener un producto o productos por Categoria
+// 🔹 [Opcional] Ruta protegida para regenerar slugs manualmente
+router.post("/generar-slugs", (req, res) => {
+  db.query("SELECT id, nombre FROM products", (err, results) => {
+    if (err) return res.status(500).json({ error: err });
 
-// En routes/productos.routes.js
-// GET /api/productos/categoria/:categoria
+    results.forEach((producto) => {
+      const slug = slugify(producto.nombre || "", {
+        lower: true,
+        strict: true,
+      });
 
-router.get("/categoria/:categoria", (req, res) => {
-  const { categoria } = req.params;
-  db.query(
-    "SELECT * FROM products WHERE categoria = ?",
-    [categoria],
-    (err, results) => {
-      if (err) return res.status(500).json({ error: err });
-      res.json(results);
-    }
-  );
+      db.query("UPDATE products SET slug = ? WHERE id = ?", [slug, producto.id]);
+    });
+
+    res.json({ message: "Slugs generados correctamente." });
+  });
 });
 
 module.exports = router;
